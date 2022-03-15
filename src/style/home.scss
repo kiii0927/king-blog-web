@@ -1,0 +1,351 @@
+.home {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    overflow: visible;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+/* ****************************banner**************************** */
+
+.home-banner {
+    width: 100%;
+    height: 36vw;
+    margin-bottom: 40px;
+}
+
+/* @media */
+
+/* 使用在屏幕小于 1200 像素时, 所有的的设备中(计算机、平板、智能手机) */
+@media screen and (max-width: 1200px) {
+    .home-banner {
+        display: none;
+    }
+}
+
+.home-banner_banner {
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 3px solid #fff;
+    box-shadow: 0 1px 3px rgb(26 26 26 / 10%);
+}
+
+/* aside img */
+.home-banner .home-banner-aside {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    /* 网格布局 */
+    display: grid;
+    /* 定行大小（高度） detail： https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html */
+    /* .home-banner-aside 高度：653px;  .home-banner-aside_bottom等于 653 - 162 = 491 ====> .home-banner-aside_top高度 */
+    grid-template-rows: 1fr 162px;
+    grid-gap: 15px 0;
+}
+
+.home-banner-aside_top,
+.home-banner-aside_bottom {
+    width: 100%;
+    height: 100%;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgb(26 26 26 / 10%);
+    overflow: hidden;
+    cursor: default;
+}
+
+.home-banner-aside_top_bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    animation: bgmove 15s linear infinite alternate;
+}
+
+/* 暂停动画 */
+/* .home-banner-aside_top_bg:hover, */
+.animation_paused {
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+}
+
+/* 自定义 carousel 过度动画 */
+.carousel-leave {
+    /* ease-in: 开始的时候慢，之后快 */
+    animation: carousel-out 0.5s ease-in;
+}
+.carousel-active {
+    /* ease-out: 开始时快，结束时候间慢 */
+    animation: carousel-in 0.5s ease-out;
+}
+
+/* ****************************************** */
+.home-banner-aside_bottom{ 
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.home-banner-aside_bottom::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    z-index: 2;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+.home-banner-aside_bottom:hover::before {
+    opacity: 1;
+}
+.home-banner-aside_bottom_bgimg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.home-banner-aside_bottom_bgimg > img {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.home-banner-aside_bottom ._clock {
+    color: white;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    display: flex;
+    /* 均匀排列每个元素,每个元素之间的间隔相等 */
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.home-banner-aside_bottom ._clock p { 
+    font-size: 40px;
+    text-shadow: 1px 0px 5px rgb(36 35 35);
+}
+
+.home-banner-aside_bottom ._clock b{ 
+    font-size: 32px;
+    height: 90px;
+    line-height: 1.3em;
+    text-shadow: 1px 0px 5px rgb(36 35 35);
+}
+
+.home-banner-aside_bottom ._clock ._clock-text-clockanm1,
+.home-banner-aside_bottom ._clock ._clock-text-clockanm2,
+.home-banner-aside_bottom ._clock ._clock-text-clockanm3{
+    height: 90px;
+    display: flex;
+    /* flex-direction 属性规定灵活项目的方向。 */
+    /* 灵活的项目将垂直显示，正如一个列一样。 */
+    flex-direction:column;
+    /* 均匀排列每个元素,首个元素放置于起点，末尾元素放置于终点 */
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+}
+
+._clock ._clock-text-clockanm1 {
+    /* https://www.w3school.com.cn/cssref/pr_animation.asp */
+    /* https://www.cnblogs.com/fightjianxian/p/9391010.html */
+    animation: clockanm 1s ease forwards;
+}
+._clock ._clock-text-clockanm2 {
+    animation: clockanm 1s ease 0.4s forwards;
+}
+._clock ._clock-text-clockanm3 {
+    animation: clockanm 1s ease 0.8s forwards;
+}
+
+/* carousel */
+.el-carousel__container .home-carousel-nav{ 
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    z-index: 3;
+    cursor: default;
+}
+
+.el-carousel__container .home-carousel-nav>div{ 
+    float: left;
+    margin:0 8px;
+    width: 128px;
+    height: 68px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.el-carousel__container .home-carousel-nav>div img{
+    width: 100%;
+    height: 100%;
+}
+
+.el-carousel__container .home-carousel-nav .carousel_active {
+    border: 1px solid white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+
+
+
+/* ****************************content**************************** */
+
+
+.home .home-content .home-content__left{
+    width: 100%;
+    height: 100px;
+    background-color: skyblue;
+}
+.home .home-content .home-content__center{ 
+    width: 100%;
+    /* detail: https://www.cnblogs.com/Qooo/p/13810066.html */
+    height: fit-content;
+    /* background-color: cyan; */
+}
+.home .home-content .home-content__right{ 
+    width: 100%;
+    height: 100px;
+    background-color: yellowgreen;
+}
+
+.home .home-content .home-content__center .request-list__content{
+    width: 100%;
+    height: max-content;
+}
+
+.home-content__center .request-list__content .study-lg-card{ 
+    width: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/ayuda.cur),auto;
+}
+.home-content__center .request-list__content .study-lg-card .study-lg-card_cover{
+    position: relative;
+    width: 100%;
+    padding: 16% 0;
+}
+.home-content__center .request-list__content .study-lg-card .study-lg-card_cover img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.home-content__center .request-list__content .study-lg-card .study-lg-card_cover>p{
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.study-lg-card .study-lg-card_cover p span{
+    font-size: 18px;
+    line-height: 24px;
+    background-color: var(--marked-color);
+    padding: 2px 12px;
+    border-radius: 6px;
+}
+.study-lg-card .study-lg-card_cover p a{
+    text-shadow: 3px 3px 3px rgb(0 0 0 / 60%);
+    font-size: 30px;
+    margin: 10px 180px 0;
+    text-align: center;
+}
+
+.study-lg-card .study-lg-card_cover div{ 
+    position: absolute;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+}
+.study-lg-card .study-lg-card_cover div>p{ 
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-20px);
+    opacity: 0;
+}
+
+.home-content__center .request-list__content .study-lg-card .study-lg-card_footer{
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.study-lg-card .study-lg-card_footer ul{
+    display: flex;
+    align-items: center;
+    
+}
+
+.study-lg-card .study-lg-card_footer ul li {
+    /* float: left; */
+    margin-right: 15px;
+}
+
+.study-lg-card .study-lg-card_footer ul li i{
+    margin-right: 5px;
+    color: #3e3e3e;
+}
+
+.study-lg-card .study-lg-card_footer ul li span{
+color: #717171;
+}
+
+.study-lg-card .study-lg-card_footer ._read{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid white;
+}
+.study-lg-card .study-lg-card_footer ._read:hover{
+    border-color: #3e3e3e;
+}
+
+.study-lg-card .study-lg-card_footer ._read i{ 
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+/* hover 动画;过度 */
+.study-lg-card,
+.study-lg-card .study-lg-card_cover img,
+.study-lg-card .study-lg-card_cover>p span,
+.study-lg-card .study-lg-card_cover>p a,
+.study-lg-card .study-lg-card_cover>div p{
+    transition: all .3s;
+}
+.study-lg-card:hover{
+    box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.35);
+}
+.study-lg-card .study-lg-card_cover:hover img{
+    filter: blur(3px);
+}
+.study-lg-card .study-lg-card_cover:hover>p span{
+    transform: translateY(-40px);
+    opacity: 0;
+}
+.study-lg-card .study-lg-card_cover:hover>p a{
+    transform: translateY(40px);
+    opacity: 0;
+}
+.study-lg-card .study-lg-card_cover:hover>div p{
+    transform: translateY(0);
+    opacity: 1;
+}
+

@@ -1,0 +1,63 @@
+@import './scrollbar.scss';
+
+
+$logo: #3DBB3D;
+$gray: #777777;
+$black: #070707;
+$green: #7ED386;
+$aqua: #3FB6A8;
+$white: #FFFFFF;
+$hulu: 'Nunito Sans', sans-serif;
+$heading: 'Montserrat', sans-serif;
+$body: 'Roboto', sans-serif;
+
+* {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth; // 窗口平稳滚动
+}
+
+ul{ 
+  list-style: none;
+}
+
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+
+body {
+  /* background: linear-gradient(to right, $aqua, $green); */
+  cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/normal.cur),auto;
+  scroll-behavior: smooth;
+  height: fit-content;
+  overflow-x: hidden;
+}
+
+html {
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+}
+
+#app {
+  // 视口: 桌面端指的是浏览器的可视区域；移动端指的就是Viewport中的Layout Viewport, “视区”所指为浏览器内部的可视区域大小，
+  // 即window.innerWidth/window.innerHeight大小，不包含任务栏标题栏以及底部工具栏的浏览器区域大小。。
+  width: 100vw;  // 1vw等于视口宽度的1%。
+  min-width: 1300px;
+  // height: 100vh; // 1vh等于视口高度的1%。
+  overflow: hidden;
+}
+
+img{
+  object-fit: cover;
+  user-select: none;
+}
+
+
+/* p,span,a,li,dd{
+  cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/texto.cur),auto;
+} */
