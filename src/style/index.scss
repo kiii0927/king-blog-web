@@ -1,4 +1,6 @@
 @import './scrollbar.scss';
+@import './home.scss';
+@import './animation.scss';
 
 
 $logo: #3DBB3D;
@@ -10,6 +12,7 @@ $white: #FFFFFF;
 $hulu: 'Nunito Sans', sans-serif;
 $heading: 'Montserrat', sans-serif;
 $body: 'Roboto', sans-serif;
+// $duration: 10s;
 
 * {
   padding: 0;
@@ -17,9 +20,13 @@ $body: 'Roboto', sans-serif;
   scroll-behavior: smooth; // 窗口平稳滚动
 }
 
-ul{ 
-  list-style: none;
-}
+// html {
+//   // width: 100%;
+//   // height: 100%;
+//   // height: fit-content;
+//   // max-height: 100vh;
+//   // box-sizing: border-box;
+// }
 
 
 body {
@@ -31,16 +38,11 @@ body {
 
 body {
   /* background: linear-gradient(to right, $aqua, $green); */
-  cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/normal.cur),auto;
+  // cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/normal.cur),auto;
   scroll-behavior: smooth;
   height: fit-content;
   overflow-x: hidden;
-}
-
-html {
-  width: 100%;
-  height: fit-content;
-  box-sizing: border-box;
+  cursor: default;
 }
 
 #app {
@@ -48,8 +50,8 @@ html {
   // 即window.innerWidth/window.innerHeight大小，不包含任务栏标题栏以及底部工具栏的浏览器区域大小。。
   width: 100vw;  // 1vw等于视口宽度的1%。
   min-width: 1300px;
-  // height: 100vh; // 1vh等于视口高度的1%。
-  overflow: hidden;
+  height: 100vh; // 1vh等于视口高度的1%。
+  // overflow: hidden;
 }
 
 img{
@@ -57,6 +59,32 @@ img{
   user-select: none;
 }
 
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+input:disabled{
+  cursor: not-allowed !important;
+  border: 1px solid #DDD !important;
+  background-color: #F5F5F5 !important;
+  color: #ACA899 !important;
+}
+
+// 点击效果
+._click:active{
+  transform: scale(0.95);
+}
+
+
+// 抖动 
+._shake {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
 
 /* p,span,a,li,dd{
   cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/texto.cur),auto;

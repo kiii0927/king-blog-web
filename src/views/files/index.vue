@@ -1,26 +1,43 @@
 <template>
-  <div class="files">
-    <Header />
-    <Main />
-  </div>
+    <div class="files">
+        <Header></Header>
+
+        <Main></Main>
+    </div>
 </template>
 
 <script>
-import Header from "./header";
-import Main from "./main";
 export default {
-  name: "Files",
-  components: {
-    Header,
-    Main,
-  },
+    name: 'Files',
+    components: {
+        Header: () => import('./header'),
+        Main: () => import('./main'),
+    },
+    data() {
+        return {
+            page: {
+                currentPage: 1,
+                pageSize: 4,
+            }, // 分页
+            type: 0,
+            search: {
+                type: 1,
+                keyword: '',
+            },
+        };
+    },
+    watch: {
+        type(newVla, oldVal) {
+            this.$store.commit('classify/SET_TYPE', newVla);
+        },
+    },
 };
 </script>
 
 <style scoped>
 .files {
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
 }
 </style>

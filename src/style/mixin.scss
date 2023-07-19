@@ -1,0 +1,118 @@
+// 重复代码块，使用混合@mixin命令定义，以及使用@include调用该mixin
+@mixin base-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin aside-base-bg {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 1px 0 6px #0000000a;
+    background-color: #fff;
+}
+
+@mixin aside-title-box {
+    @include aside-base-bg;
+    display: block;
+    margin-top: 16px;
+    padding-bottom: 20px;
+}
+
+@mixin aside-title-box-sidetips {
+    position: relative;
+    top: 16px;
+    left: 14px;
+    font-size: 16px;
+    width: 80%;
+    height: 30px;
+    border-bottom: 1px solid #e8e8e8;
+    text-indent: 2px;
+    color: #777;
+    margin-bottom: 36px;
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 60px;
+        border-radius: 3px;
+        background: var(--marked-color);
+    }
+}
+
+
+@mixin base-pl-box {
+    .box-val {
+        margin-top: 5px;
+        padding-left: 50px;
+
+        .val {
+            padding: 8px 12px;
+            background: #f4f6fb;
+            color: #4c5563;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            border-radius: 4px;
+            line-height: 1.5;
+        }
+    }
+
+    .box-t {
+        display: flex;
+        align-items: center;
+
+        img {
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+        }
+
+        .right {
+            text-align: right;
+            flex: 1;
+            
+            // font-weight: 300;
+            
+            // color: #5f4cea;
+
+            span{
+                letter-spacing: 1px;
+                cursor: pointer;
+            }
+        }
+
+        .text {
+            margin-left: 5px;
+
+            .text-name {
+                padding-left: 5px;
+                font-size: 13px;
+                font-weight: 700;
+                color: #4c5563;
+
+                .ip {
+                    letter-spacing: 0.5px;
+                    display: inline-block;
+                    font-weight: 500;
+                    background: #f3f3f3;
+                    font-size: 12px;
+                    color: #706f74;
+                    margin-left: 10px;
+                    padding: 2px 5px;
+                    box-sizing: border-box;
+                    border-radius: 5px;
+                }
+            }
+
+            .text-time {
+                margin-top: 5px;
+                font-size: 12px;
+                font-weight: 400;
+                color: rgb(156 163 175);
+            }
+        }
+    }
+}
